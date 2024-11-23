@@ -1,11 +1,24 @@
+import { createProduct } from "../../../database/products";
+
 export default function AddProduct() {
+    async function handleSubmit(formData: FormData) {
+        "use server";
+        const newProduct = {
+            name: formData.get("name"),
+            price: formData.get("price"),
+            image: formData.get("image"),
+        };
+
+        createProduct(newProduct.name, newProduct.price, newProduct.name);
+    }
+
     return (
         <div className="p-4 mx-auto max-w-xl bg-white font-[sans-serif]">
             <h1 className="text-2xl leading-7 text-gray-900 font-semibold text-center">
                 Add Product
             </h1>
 
-            <form className="mt-8 space-y-4">
+            <form action={handleSubmit} className="mt-8 space-y-4">
                 <div className="flex gap-2">
                     <div>
                         <label className="text-gray-700">Product name</label>
@@ -31,6 +44,7 @@ export default function AddProduct() {
                         <label className="text-gray-700">Product price</label>
                         <input
                             type="number"
+                            name="price"
                             placeholder="U$"
                             className="
                                 w-full
@@ -51,6 +65,7 @@ export default function AddProduct() {
                     <label className="text-gray-700">Product image</label>
                     <input
                         type="file"
+                        name="image"
                         className="
                             w-full
                             rounded-md

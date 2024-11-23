@@ -5,6 +5,7 @@ import { getProducts } from "../../../../database/products";
 interface Props {
     id: number;
     name: string;
+    price: number;
     image: string;
 }
 
@@ -22,6 +23,8 @@ export default function Products({ params }: { params: { slug: string } }) {
                 <div className="m-1 text-gray-600">
                     <div className="m-1">
                         <strong>{product?.name}</strong>
+                        {product?.price}
+                        {product?.image}
                     </div>
                 </div>
             </Suspense>
