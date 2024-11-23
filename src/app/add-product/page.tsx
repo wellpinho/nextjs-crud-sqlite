@@ -6,43 +6,45 @@ export default function AddProduct() {
             </h1>
 
             <form className="mt-8 space-y-4">
-                <div>
-                    <label className="text-gray-700">Product name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="name..."
-                        className="
-                            w-full
-                            rounded-md
-                            py-3 px-4
-                            text-gray-800
-                            bg-gray-100
-                            focus:bg-transparent
-                            text-xs
-                            ring-1 ring-inset ring-gray-300
-                            sm:text-md sm:leading-6
-                            outline-gray-300"
-                    />
-                </div>
+                <div className="flex gap-2">
+                    <div>
+                        <label className="text-gray-700">Product name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="name..."
+                            className="
+                                w-full
+                                rounded-md
+                                py-3 px-4
+                                text-gray-800
+                                bg-gray-100
+                                focus:bg-transparent
+                                text-xs
+                                ring-1 ring-inset ring-gray-300
+                                sm:text-md sm:leading-6
+                                outline-gray-300"
+                        />
+                    </div>
 
-                <div>
-                    <label className="text-gray-700">Product price</label>
-                    <input
-                        type="number"
-                        placeholder="U$"
-                        className="
-                            w-full
-                            rounded-md
-                            py-3 px-4
-                            text-gray-800
-                            bg-gray-100
-                            focus:bg-transparent
-                            text-xs
-                            ring-1 ring-inset ring-gray-300
-                            sm:text-md sm:leading-6
-                            outline-gray-300"
-                    />
+                    <div>
+                        <label className="text-gray-700">Product price</label>
+                        <input
+                            type="number"
+                            placeholder="U$"
+                            className="
+                                w-full
+                                rounded-md
+                                py-3 px-4
+                                text-gray-800
+                                bg-gray-100
+                                focus:bg-transparent
+                                text-xs
+                                ring-1 ring-inset ring-gray-300
+                                sm:text-md sm:leading-6
+                                outline-gray-300"
+                        />
+                    </div>
                 </div>
 
                 <div>
@@ -69,7 +71,7 @@ export default function AddProduct() {
                     </span>
                 </div>
 
-                <div className="flex gap-1">
+                <div className="flex gap-2">
                     <button
                         type="submit"
                         className="text-white bg-green-600 hover:bg-green-700 tracking-wide rounded-md text-sm px-4 py-3 w-full"
