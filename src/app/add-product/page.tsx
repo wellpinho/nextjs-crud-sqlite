@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { createProduct } from "../../../database/products";
 
 export default function AddProduct() {
@@ -10,6 +11,7 @@ export default function AddProduct() {
         };
 
         createProduct(newProduct.name, newProduct.price, newProduct.name);
+        redirect("/");
     }
 
     return (
