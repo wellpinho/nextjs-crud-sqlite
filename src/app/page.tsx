@@ -1,32 +1,30 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import { getProducts } from "../../database/products";
 import Loading from "./loading";
+import { ProductCardComponent } from "@/components/product-card";
 
 interface Props {
     id: number;
     name: string;
     image: string;
+    price: number;
 }
 
 export default async function Products() {
     const products: Props[] = getProducts();
 
     return (
-        <div className="container mx-auto mt-8">
-            <h1 className="text-gray-700 text-4xl mb-4 font-semibold">
-                This is the products page.
-            </h1>
+        <div className="grid lg:grid-cols-4 gap-y-2 lg:gap-y-12 gap-x-14 mx-1 lg:mx-24 my-12">
             <Suspense fallback={<Loading />}>
-                <div className="m-1 text-gray-600">
-                    {products?.map((product) => (
-                        <div className="m-1" key={product.id}>
-                            <Link href={`/product-details/${product.name}`}>
-                                {product.name}
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+                {products?.map((product) => (
+                    <div key={product.id} className="m-1 text-gray-600">
+                        <ProductCardComponent
+                            image={product.image}
+                            name={product.name}
+                            price={product.price}
+                        />
+                    </div>
+                ))}
             </Suspense>
         </div>
     );
