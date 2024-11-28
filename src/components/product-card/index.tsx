@@ -1,13 +1,17 @@
+"use client";
+import { IProduct } from "@/interfaces/Product";
+import { deleteProduct } from "@/services/delete-product";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Props {
-    name: string;
-    price: number;
-    image: string;
-}
-
-export const ProductCardComponent = ({ image, name, price }: Props) => {
+export const ProductCardComponent = ({ id, image, name, price }: IProduct) => {
+    async function deleteP(param: string) {
+        try {
+            await deleteProduct(param);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div
             className="
@@ -35,7 +39,7 @@ export const ProductCardComponent = ({ image, name, price }: Props) => {
             </div>
             <div className="grid grid-cols-2 gap-4 p-4">
                 <Link
-                    href={"#"}
+                    href={`/edit-product/${id}`}
                     className="
                         col-span-1
                         p-2 inline-flex
@@ -67,6 +71,7 @@ export const ProductCardComponent = ({ image, name, price }: Props) => {
                     </svg>
                 </Link>
                 <button
+                    onClick={() => deleteP(id)}
                     className="
                         col-span-1
                         p-2 inline-flex

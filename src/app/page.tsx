@@ -4,7 +4,7 @@ import Loading from "./loading";
 import { ProductCardComponent } from "@/components/product-card";
 
 interface Props {
-    id: number;
+    id: string;
     name: string;
     image: string;
     price: number;
@@ -19,6 +19,7 @@ export default async function Products() {
                 {products?.map((product) => (
                     <div key={product.id} className="m-1 text-gray-600">
                         <ProductCardComponent
+                            id={product.id}
                             image={product.image}
                             name={product.name}
                             price={product.price}
